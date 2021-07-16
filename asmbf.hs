@@ -55,7 +55,7 @@ accum (Add a : Add b : xs)
   | a + b > 127 = Add a : accum (Add b : xs)
   | otherwise = accum $ Add (a + b) : xs
 accum (Sub a : Sub b : xs)
-  | a + b > 127 = Add a : accum (Add b : xs)
+  | a + b > 127 = Sub a : accum (Sub b : xs)
   | otherwise = accum $ Sub (a + b) : xs
 accum (ShiftL a : ShiftL b : xs)
   | a + b > 127 = ShiftL a : accum (ShiftL b : xs)
